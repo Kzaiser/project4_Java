@@ -1,14 +1,14 @@
 import java.util.Random;
 
-public class Faculty extends Employee {
+public class Staff extends Employee {
     static Random rnd = new Random();
-    public Faculty () {
+    public Staff () {
         generate();
     }
     @Override
     public void generate() {
         super.generate();
-        degree = Names.degree[rnd.nextInt(Names.degree.length)];
+        title = Names.title[rnd.nextInt(Names.title.length)];
     }
     @Override
     public String toString() {
@@ -17,7 +17,7 @@ public class Faculty extends Employee {
     
     @Override
     public String toString(boolean lab) {
-        return (lab ? "" : "") + super.toString(false) + String.format(" %10s", degree);
+        return (lab ? "" : "") + super.toString(false) + String.format(" %10s", title);
     }
 
     @Override
@@ -27,8 +27,8 @@ public class Faculty extends Employee {
 
     @Override
     public String htmlColumns() {
-        return super.htmlColumns() + String.format("<TD>%10s</TD>", degree);
+        return super.htmlColumns() + String.format("<TD>%10s</TD>", title);
     }
 
-    protected String degree = null;
+    protected String title = null;
 }

@@ -25,12 +25,12 @@ public class Employee extends Member {
     public String toString(boolean lab) {
         // return (lab ? "EMP" : "") + String.format("%03d-%02d-%04d %10s %-10s %10s %4d", ID/1000000,
         // ID/10000 % 100, ID % 10000, firstName, lastName, department, yearHired);
-        return (lab ? "EMP" : "") + super.toString(false) + String.format("%10s %4d", department, yearHired);
+        return (lab ? "" : "") + super.toString(false) + String.format("%10s %4d", department, yearHired);
     }
 
     @Override
     public String htmlRow() {
-        return "/t/t<TR>    " + htmlColumns() + "   </TR>";
+        return "\t\t<TR>    " + htmlColumns() + "   </TR>";
     }
 
     @Override
