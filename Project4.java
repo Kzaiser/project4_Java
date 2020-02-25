@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Project4 {
-    static Scnaner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     static String menu[] = {
                 "======================== CS 3990 Assignment 1 ===============",
