@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 public class MyList<T> implements Iterable<T> {   // A generic List class
-    Node front = null, rear = null;
+    Node head = null, tail = null;
     int size = 0;
 
     public Iterator<T> iterator() {
@@ -42,11 +42,11 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
             return obj;
         }
 
-        public ListIterator() { current = front; }
+        public ListIterator() { current = head; }
 
         public ListIterator(boolean direction) {
             fwd = direction;
-            current = fwd ? front : rear;
+            current = fwd ? head : tail;
         }
 
         // optional
@@ -62,7 +62,19 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
         }
 
         public void insert(T obj, int position)  {
-            
+            switch(size) {
+                case 0: {
+                addToFront(obj);
+                break;
+                }
+                case 1: {
+                    break;
+                }
+                default: {
+                    break;
+                }
+            }
+
         }
 
         // public void	insert(C obj, int position);
@@ -72,18 +84,52 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
 		// public T removeFront( );
         // public T removeRear( );
         public T remove( int position) {
+
         }
 
         public MyList<T> addToFront( T obj ) {
-
+            // Allocate new node.
+            Node node = new Node(obj);
+            //Make next of new node as head and previous as null.
+            node.next = head;
+            node.prev = null;
+            //Change of previous of head node to new node
+            if (head != null) {
+                head.prev = node;
+            }
+            // move the head to point to the new node 
+            head = node;
+            size++;
+            return this;
         }
 
         public MyList<T> addToRear(T obj) {
+            //Allocate Node
+            //Insert the Data
+            Node node = new Node(obj);
+            Node last = head; // going to use later, but not too sure how yet.
+            //Created node is going to be the last so make next of that node equal to null.
+            node.next = null;
+            //If the linked list is empty, then make the new node as head
+            if(head == null) {
+                node.prev = null;
+                head = node;
+                return this;
+            }
+            //Else traverse until the last node.
+            while (last.next != null) {
+                last = last.next;
+            }
+            //Change the next of last node
+            last.next = node;
+            //Make last node as previous of new node
+            node.prev = last;
 
+            return this;
         }
 
         public T removeFront() {
-            
+            return null;
         }
 
         public T removeRear() {
