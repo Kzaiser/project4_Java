@@ -140,7 +140,7 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
                     temp = null;
                 }
             }
-            else { System.out.println("List is empty!"); break; }
+            else { System.out.println("List is empty!"); }
             
             return null;
             

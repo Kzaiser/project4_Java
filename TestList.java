@@ -43,6 +43,8 @@ public class TestList {
         // Member m = new Member();
 
         lst.addToFront("straight steeeeez");
+        lst.addToFront("fdas");
+        // lst.removeFront();        
         // lst.add(s = new Student().add);
 
         Iterator<String> itr = lst.iterator();
