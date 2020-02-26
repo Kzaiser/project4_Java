@@ -1,5 +1,7 @@
-import java.lang.reflect.Member;
+// import java.lang.reflect.Member;
 import java.util.Random;
+
+import java.util.*;
 
 public class TestList {
     // protected String member = "";
@@ -37,19 +39,16 @@ public class TestList {
     //     return member;
     // }
     public static void main(String args[]) {
-        List lst = new List<Member>();
-        Member m = null;
+        MyList<String> lst = new MyList<String>();
+        // Member m = new Member();
 
-        lst.addToFront(((m=new Member())));
+        lst.addToFront("straight steeeeez");
+        // lst.add(s = new Student().add);
 
-        lst.add(s = new Student().add);
-
-        Iterator<Member> itr = lst.iterator();
-
-        int pos = 0;
+        Iterator<String> itr = lst.iterator();
+        // int pos = 0;
         while(itr.hasNext()) {
-            System.out.println();
+            System.out.println(itr.next() + "");
         }
-        System.out.println();
     }
 }
