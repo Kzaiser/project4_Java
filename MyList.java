@@ -83,9 +83,9 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
 		// public List<T> addToRear ( T obj );
 		// public T removeFront( );
         // public T removeRear( );
-        public T remove( int position) {
+        // public T remove( int position) {
 
-        }
+        // }
 
         public MyList<T> addToFront( T obj ) {
             // Allocate new node.
@@ -133,7 +133,7 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
         }
 
         public T removeRear() {
-
+            return null;
         }
 
 }
