@@ -129,7 +129,21 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
         }
 
         public T removeFront() {
+            // Check if List is empty
+            if(!empty()) {
+                Node temp = head.next;
+                head = null;
+                head = temp;
+                if (head != null || tail != null) {
+                    temp.next = null;                   
+                    head.prev = null;
+                    temp = null;
+                }
+            }
+            else { System.out.println("List is empty!"); break; }
+            
             return null;
+            
         }
 
         public T removeRear() {
