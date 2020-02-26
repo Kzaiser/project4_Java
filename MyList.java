@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Iterator;
 
-public class MyList<T> implements Iterable<T>{  // A generic List class
+public class MyList<T> implements Iterable<T> {   // A generic List class
     Node front = null, rear = null;
     int size = 0;
 
@@ -62,7 +62,7 @@ public class MyList<T> implements Iterable<T>{  // A generic List class
         }
 
         public void insert(T obj, int position)  {
-
+            
         }
 
         // public void	insert(C obj, int position);
@@ -72,7 +72,6 @@ public class MyList<T> implements Iterable<T>{  // A generic List class
 		// public T removeFront( );
         // public T removeRear( );
         public T remove( int position) {
-
         }
 
         public MyList<T> addToFront( T obj ) {
@@ -91,5 +90,4 @@ public class MyList<T> implements Iterable<T>{  // A generic List class
 
         }
 
-    }
 }

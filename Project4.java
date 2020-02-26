@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Project4 {
@@ -60,6 +61,7 @@ public class Project4 {
                     bool = !bool;
                     break;
                 case 'G': case 'g':
+                    generateAndStore();
                     break;
                 case 'S': case 's': 
                     break;
@@ -68,6 +70,11 @@ public class Project4 {
                 case 'O': case 'o':
                     break;
                 case 'D': case 'd':
+                /*
+                Check to see if the stack has anything in it.
+                If it doesn't, print out that there is nothing to delete.
+                Otherwise, pop from the stack, deque from the queue, and deque from the sortedQueue. 
+                */
                     break;
                 case 'I': case 'i':
                     break;
@@ -80,5 +87,23 @@ public class Project4 {
                     break;
             }
         }
+    }
+
+    static void generateAndStore() {
+        System.out.printf("\n\t\t Members to be generated?\n");
+        try {
+            n = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("\n\t\t Input a value!\n");
+        }
+        /* Create: Doubly Linked List, Stack, and Queue 
+         First, check if the stack is empty and if it is empty,
+         add all of the members to the data structures.
+         Otherwise, remove everything from the array and generate the members
+         afterwards. 
+        */
+        // if (stack.empty()) {
+            
+        // }
     }
 }

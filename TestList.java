@@ -1,4 +1,4 @@
-import java.lang.reflect.Member;
+// import java.lang.reflect.Member;
 import java.util.Random;
 
 public class TestList {
@@ -37,14 +37,14 @@ public class TestList {
     //     return member;
     // }
     public static void main(String args[]) {
-        List lst = new List<Member>();
-        Member m = null;
+        MyList<Member> lst = new MyList<Member>();
+        Member m = new Member();
 
-        lst.addToFront(((m=new Member())));
+        lst.addToFront(m);
 
-        lst.add(s = new Student().add);
+        // lst.add(s = new Student().add);
 
-        Iterator<Member> itr = lst.iterator();
+        ListIterator<Member> itr = lst.iterator();
 
         int pos = 0;
         while(itr.hasNext()) {
