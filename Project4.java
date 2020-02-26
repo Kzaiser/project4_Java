@@ -19,7 +19,7 @@ public class Project4 {
             "|  Q/q to quit listing after each 20 members.       |",
             "|  List last 20 members if program quit early.      |",
             "+---------------------------------------------------+",
-            "| Q/q: List members in queue.                         |".
+            "| Q/q: List members in queue.                         |",
             "+---------------------------------------------------+",
             "| O/o: List members in ordered queue sorted by SSN    |",
             "+---------------------------------------------------+",
