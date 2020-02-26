@@ -44,6 +44,12 @@ public class TestList {
 
         lst.addToFront("straight steeeeez");
         lst.addToFront("fdas");
+        lst.addToFront("ass");
+        lst.addToFront("fuck");
+        lst.addToFront("fuck2");
+        lst.addToFront("fuck3");
+        lst.addToFront("fuck4");
+        lst.removeRear();
         // lst.removeFront();        
         // lst.add(s = new Student().add);
 

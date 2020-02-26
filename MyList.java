@@ -91,14 +91,21 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
             // Allocate new node.
             Node node = new Node(obj);
             //Make next of new node as head and previous as null.
-            node.next = head;
+            // node.next = head;
             node.prev = null;
             //Change of previous of head node to new node
             if (head != null) {
+                // head.prev = node;
+                node.next = head;
                 head.prev = node;
+                head = node;
+            }
+            else {
+                node.prev = null;
+                node.next = null;
+                head = node;
             }
             // move the head to point to the new node 
-            head = node;
             size++;
             return this;
         }
@@ -139,6 +146,12 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
                     head.prev = null;
                     temp = null;
                 }
+                else {
+                    temp.next = head;
+                    head.prev = null;
+                    temp = null;
+                }
+                size--;
             }
             else { System.out.println("List is empty!"); }
             
@@ -147,6 +160,31 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
         }
 
         public T removeRear() {
+            // Check if List is empty
+            if(!empty()) {
+                // Create temp node to maintain nodes
+                Node temp = head.next;
+                head = null;
+                head = temp;
+                // Check if there is only 1 node and delete it
+                if(head != null || tail != null) {
+                    temp.next = null;
+                    head.prev = null;
+                    temp = null;
+                }
+                // else traverse list until the end and delete
+                else {
+                    while(temp.next != null) {
+                        temp = temp.next;
+                    }
+                    temp.prev.next = temp;
+
+
+                }
+                size--;
+            }
+            else { System.out.println("List is empty!"); }
+
             return null;
         }
 
