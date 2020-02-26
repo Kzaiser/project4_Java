@@ -68,6 +68,7 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
                 break;
                 }
                 case 1: {
+                    addToRear(obj);
                     break;
                 }
                 default: {
