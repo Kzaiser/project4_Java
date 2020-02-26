@@ -44,7 +44,17 @@ public class TestList {
 
         lst.addToFront("straight steeeeez");
         lst.addToFront("fdas");
-        // lst.removeFront();        
+        lst.addToFront("ass");
+        lst.addToFront("fuck");
+        lst.addToFront("fuck2");
+        lst.addToFront("fuck3");
+        //first one is fuck4
+        lst.addToFront("fuck4");
+        lst.addToRear("fuck5");
+        //last one is fuck6
+        lst.addToRear("fuck6");
+        lst.removeRear();
+        lst.removeFront();        
         // lst.add(s = new Student().add);
 
         Iterator<String> itr = lst.iterator();
