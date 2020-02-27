@@ -13,6 +13,13 @@ public class MyList<T> implements Iterable<T> {   // A generic List class
         return new ListIterator( direction );
     }
 
+    // /* Constructor for MyList */
+    // protected MyList(Node head, Node tail, int size) {
+    //         head = this.head;
+    //         tail = this.tail;
+    //         size = this.size;
+    // }
+
     protected class Node {    // Inner class Node
         // Node Constructor, data and function members
         T data;

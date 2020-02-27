@@ -19,7 +19,7 @@ public class Project4 {
             "|  Q/q to quit listing after each 20 members.       |",
             "|  List last 20 members if program quit early.      |",
             "+---------------------------------------------------+",
-            "| Q/q: List members in queue.                         |",
+            "| Q/q: List members in queue.                         |".
             "+---------------------------------------------------+",
             "| O/o: List members in ordered queue sorted by SSN    |",
             "+---------------------------------------------------+",
@@ -32,7 +32,7 @@ public class Project4 {
             "|    members of both structures side-by-side:       |",
             "|    Original One           Copy Constructor Crted  |",
             "+---------------------------------------------------+",
-            "| I/i: Randomly generate new member, and put          |",
+            "| I/i: Randomly generate new member, and put        |",
             "|    the object into the three structures. Print    |",
             "|    out the new member added in.                   |",
             "+---------------------------------------------------+",
