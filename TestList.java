@@ -55,6 +55,7 @@ public class TestList {
         lst.addToRear("fuck6");
         lst.removeRear();
         lst.removeFront();        
+        lst.insert("ahahah", 3);
         // lst.add(s = new Student().add);
 
         Iterator<String> itr = lst.iterator();

@@ -20,6 +20,14 @@ public class MyStack<T> extends MyList<T> {
     //     this.size = size;
     // }
 
+    public MyStack() {
+        super();
+    }
+
+    public MyStack(MyStack<T> myStack) {
+        super(myStack);
+    }
+
     // Add the object (Node) to the top
     
     MyList<T> push (T obj) {

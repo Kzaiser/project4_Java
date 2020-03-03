@@ -2,9 +2,19 @@ import java.util.Random;
 
 public class Faculty extends Employee {
     static Random rnd = new Random();
+    public int compareTo(Faculty faculty) {
+        return ID - faculty.ID;
+    }
+    
     public Faculty () {
         generate();
     }
+
+    public Faculty(Faculty faculty) {
+        super(faculty);
+        degree = new String(faculty.degree);
+    }
+
     @Override
     public void generate() {
         super.generate();

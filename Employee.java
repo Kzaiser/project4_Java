@@ -2,9 +2,19 @@ import java.util.Random;
 
 public class Employee extends Member {
     static Random rnd = new Random();
+    public int compareTo(Employee employee) {
+        return ID - employee.ID;
+    }
     public Employee () {
         generate();
     }
+
+    public Employee(Employee employee) {
+        super(employee);
+        department = new String(employee.department);
+        yearHired = employee.yearHired;
+    }
+
     @Override 
     public void generate() {
         super.generate();

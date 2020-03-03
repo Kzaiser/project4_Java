@@ -1,16 +1,19 @@
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Project4 {
+    static int n;
+    static boolean bool = false;
     static Scanner scanner = new Scanner(System.in);
-
+    static Random rand = new Random();
     static String menu[] = {
             "+===================================================+",
             "|    CS 3390 Assignment:  Linked List Structures    |",
             "+===================================================+",
-            "| G/g: Ask for a N, and generate N members of mixed   |",
-            "|    kinds and put them into three list structures. |",
+            "| G: Ask for a N, and generate 2XN members of mixed |",
+            "|   kinds and put them into three list structures.  |",
             "|    Make sure you destroy the lists before creating|",
             "|    new ones if the lists are not empty.           |",
             "+---------------------------------------------------+",
@@ -19,7 +22,7 @@ public class Project4 {
             "|  Q/q to quit listing after each 20 members.       |",
             "|  List last 20 members if program quit early.      |",
             "+---------------------------------------------------+",
-            "| Q/q: List members in queue.                         |".
+            "| Q/q: List members in queue.                         |",
             "+---------------------------------------------------+",
             "| O/o: List members in ordered queue sorted by SSN    |",
             "+---------------------------------------------------+",
@@ -41,9 +44,6 @@ public class Project4 {
             "+===================================================+"
     };
 
-    static int n;
-    static boolean bool = false;
-
     static char showAndGetMenuItem() {
         if(bool==true) {
             for (int i = 0; i < menu.length; i++) {
@@ -55,6 +55,22 @@ public class Project4 {
             System.out.printf("\n\n\t\t%s", "Enter a command: G/g, S/s, Q/q, D/d, I/i, H/h/? to Toggle Command Menu, or E to Quit: ");
         }
         return scanner.next().trim().charAt(0);
+    }
+
+    static Member nextMember() {
+        switch (rand.nextInt(5)) {
+            case 0:
+                return new Member();
+            case 1:
+                return new Employee();
+            case 2:
+                return new Student();
+            case 3:
+                return new Faculty();
+            case 4:
+                return new Staff();
+        }
+        return new Member();
     }
 
     public static void main( String args[] ) {
@@ -100,9 +116,11 @@ public class Project4 {
         System.out.printf("\n\t\t Members to be generated?\n");
         try {
             n = scanner.nextInt();
+            n *= 2;
         } catch (InputMismatchException e) {
             System.out.println("\n\t\t Input a value!\n");
         }
+        
         /* Create: Doubly Linked List, Stack, and Queue 
          First, check if the stack is empty and if it is empty,
          add all of the members to the data structures.

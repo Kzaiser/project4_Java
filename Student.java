@@ -13,8 +13,17 @@ public class Student extends Member {
     //     // }
     // }
 
+    public int compareTo(Student student) {
+        return ID - student.ID;
+    }
     public Student() {
         generate();
+    }
+
+    public Student(Student student) {
+        super(student);
+        major = new String(student.major);
+        GPA = student.GPA;
     }
 
     // public Student(String major, float GPA) {

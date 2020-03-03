@@ -10,8 +10,24 @@
 */
 
 public class MySortedQueue<T extends Comparable> extends MyList<T> {
+    public MySortedQueue() {
+        head = tail = null;
+        size = 0;
+    }
+
+    public MySortedQueue(MySortedQueue<T> mySortQueue) {
+        super(mySortQueue);
+    }
+    
     public MySortedQueue<T> enque ( T obj ) {
-        
+        Node node = new Node(obj);
+
+        if (head == null) {
+            head = node;
+            prev = head;
+        } else {
+            
+        }
         return this;
     }
     
