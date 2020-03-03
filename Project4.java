@@ -150,6 +150,7 @@ public class Project4 {
                     myStack.push(m);
                     myQueue.enQueue(m);
                     // mySortedQueue.enque(m);
+                    System.out.println(m.toString(true));
                     break;
                 case 'E':
                 case 'e':
