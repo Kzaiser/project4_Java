@@ -9,11 +9,6 @@ public class MyList<T> implements Iterable<T> { // A generic List class
         return new ListIterator(true);
     }
 
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + size + "]";
-    }
-
     public Iterator<T> iterator(boolean direction) {
         return new ListIterator(direction);
     }

@@ -21,16 +21,19 @@ public class MyStack<T> extends MyList<T> {
     // }
 
     public MyStack() {
-        super();
+        head = tail = null;
+        size = 0;
     }
 
     public MyStack(MyStack<T> myStack) {
         super(myStack);
+        myStack.head = myStack.tail = null;
+        myStack.size = 0;
     }
 
     // Add the object (Node) to the top
     
-    MyList<T> push (T obj) {
+    public MyList<T> push (T obj) {
         // top in this case = head
         // create new node temp and allocate memory 
         Node node = new Node(obj);
