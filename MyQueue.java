@@ -20,6 +20,7 @@ public class MyQueue<T> extends MyList<T> {
             tail.next = node;
             tail = node;
         }
+        size++;
         return this;
     }
 
@@ -33,7 +34,9 @@ public class MyQueue<T> extends MyList<T> {
             head = temp.next;
             //head.prev = null;
             temp = null;
+            size--;
         }
+        
         return null;
     }
 

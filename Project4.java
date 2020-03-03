@@ -10,6 +10,9 @@ public class Project4 {
     static MyStack<Member> myStack = new MyStack<Member>();
     static MyQueue<Member> myQueue = new MyQueue<Member>();
     // static MySortedQueue<Member> mySortedQueue = new MySortedQueue<Member>();
+    static MyStack<Member> myStackCopy = null;
+    static MyQueue<Member> myQueueCopy = null;
+    // static MySortedQueue<Member> mySortedQueueCopy = null;
     static boolean bool = false;
     static Scanner scanner = new Scanner(System.in);
     static Random rand = new Random();
@@ -58,7 +61,7 @@ public class Project4 {
 
         } else {
             System.out.printf("\n\n\t\t%s",
-                    "Enter a command: G/g, S/s, Q/q, D/d, I/i, H/h/? to Toggle Command Menu, or E to Quit: ");
+                    "Enter a command: G/g, S/s, Q/q, D/d, C/c, I/i, H/h/? to Toggle Command Menu, or E to Quit: ");
         }
         return scanner.next().trim().charAt(0);
     }
@@ -125,14 +128,28 @@ public class Project4 {
                     break;
                 case 'D':
                 case 'd':
+                    myStack.pop();
+                    myQueue.deQueue();
+                    // mySortedQueue.deQueue();
                     /*
                      * Check to see if the stack has anything in it. If it doesn't, print out that
                      * there is nothing to delete. Otherwise, pop from the stack, deque from the
                      * queue, and deque from the sortedQueue.
                      */
                     break;
+                case 'C':
+                case 'c':
+                    // createCopy();
+                    myStackCopy = new MyStack<>(myStack);
+                    myQueueCopy = new MyQueue<>(myQueue);
+                    // mySortedQueueCopy = new MySortedQueue<>(mySortedQueue);
+                    break;
                 case 'I':
                 case 'i':
+                    m = nextMember();
+                    myStack.push(m);
+                    myQueue.enQueue(m);
+                    // mySortedQueue.enque(m);
                     break;
                 case 'E':
                 case 'e':
@@ -170,15 +187,43 @@ public class Project4 {
 
     static void displayStack() {
         Iterator<Member> itr = myStack.iterator();
+        int limit = 20;
+        int current = 0;
+        int lastValues = myStack.size - 20;
         while(itr.hasNext()) {
+            current++;
             System.out.println(itr.next() + "");
+            if (current == limit) {
+                System.out.println("Would you like to continue? Enter Q/q to quit early.");
+                char continueAns = scanner.next().trim().charAt(0);
+                if(continueAns == 'Q' || continueAns == 'q') {
+                    break;
+                } else {
+                    current = 0;
+                }
+            }
         }
         return;
     }
+
+
     static void displayQueue() {
         Iterator<Member> itr = myQueue.iterator();
+        int limit = 20;
+        int current = 0;
+        int lastValues = myQueue.size - 20;
         while(itr.hasNext()) {
+            current++;
             System.out.println(itr.next() + "");
+            if (current == limit) {
+                System.out.println("Would you like to continue? Enter Q/q to quit early.");
+                char continueAns = scanner.next().trim().charAt(0);
+                if(continueAns == 'Q' || continueAns == 'q') {
+                    break;
+                } else {
+                    current = 0;
+                }
+            }
         }
         return;
     }

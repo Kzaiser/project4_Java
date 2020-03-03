@@ -191,7 +191,7 @@ public class MyList<T> implements Iterable<T> { // A generic List class
         last.next = node;
         // Make last node as previous of new node
         node.prev = last;
-
+        size++;
         return this;
     }
 

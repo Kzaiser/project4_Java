@@ -33,7 +33,7 @@ public class MyStack<T> extends MyList<T> {
 
     // Add the object (Node) to the top
     
-    public MyList<T> push (T obj) {
+    public MyStack<T> push (T obj) {
         // top in this case = head
         // create new node temp and allocate memory 
         Node node = new Node(obj);
@@ -48,7 +48,7 @@ public class MyStack<T> extends MyList<T> {
         // initialize data into temp data field 
         // put top reference into temp link 
         // update top reference 
-
+        size++;
         return this;
     }
 
