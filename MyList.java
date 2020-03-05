@@ -14,16 +14,16 @@ public class MyList<T> implements Iterable<T> { // A generic List class
     }
 
     public MyList() {
-        head = tail = null;
-        size = 0;
+        this.head = this.tail = null;
+        this.size = 0;
     }
 
     // the list object is pointed to head, tail, and size.
     // I believe this is the correct way to do the copy constructor.
     public MyList(MyList<T> myList) {
-        myList.head = myList.tail = null;
-        myList.size = 0;
-
+        head = myList.head;
+        tail = myList.tail;
+        size = myList.size;
     }
     // protected MyList(Node head, Node tail, int size) {
     // this.head = head;
@@ -148,103 +148,66 @@ public class MyList<T> implements Iterable<T> { // A generic List class
 
     // }
 
-    public MyList<T> addToFront(T obj) {
+    public T addToFront(T obj) {
         // Allocate new node.
         Node node = new Node(obj);
-        // Make next of new node as head and previous as null.
-        // node.next = head;
-        node.prev = null;
-        // Change of previous of head node to new node
-        if (head != null) {
-            // head.prev = node;
+        if (size == 0) {
+            head = tail = node;
+        } else {
             node.next = head;
             head.prev = node;
             head = node;
-        } else {
-            node.prev = null;
-            node.next = null;
-            head = node;
         }
-        // move the head to point to the new node
         size++;
-        return this;
+        return obj;
     }
 
     public MyList<T> addToRear(T obj) {
         // Allocate Node
         // Insert the Data
         Node node = new Node(obj);
-        Node last = head; // going to use later, but not too sure how yet.
         // Created node is going to be the last so make next of that node equal to null.
-        node.next = null;
         // If the linked list is empty, then make the new node as head
-        if (head == null) {
-            node.prev = null;
-            head = node;
-            return this;
+        if (size < 1) {// add first node
+            head = tail = node;
+        } else {
+            tail.next = node;
+            node.prev = tail;
+            tail = node;
         }
-        // Else traverse until the last node.
-        while (last.next != null) {
-            last = last.next;
-        }
-        // Change the next of last node
-        last.next = node;
-        // Make last node as previous of new node
-        node.prev = last;
         size++;
         return this;
     }
 
     public T removeFront() {
         // Check if List is empty
-        if (!empty()) {
-            Node temp = head;
-            // head = null;
-            // head = temp;
-            if (temp.prev == null && temp.next == null) {
-                // temp.next = null;
-                // head.prev = null;
-                // temp = null;
-                head = null;
-                temp = null;
-            } else {
-                head = temp.next;
-                head.prev = null;
-                temp = null;
-            }
-            size--;
-        } else {
-            System.out.println("List is empty!");
+        if (size < 1)
+            return null;
+        T obj = head.data;
+        size--;
+        if (size == 0)
+            head = tail = null;
+        else {
+            head = head.next;
+            head.prev.next = null;
+            head.prev = null;
         }
-
-        return null;
+        return obj;
 
     }
 
     public T removeRear() {
-        // Check if List is empty
-        if (!empty()) {
-            // Create temp node to maintain nodes
-            Node temp = head;
-            // Check if there is only 1 node and delete it
-            if (temp.prev == null && temp.next == null) {
-                head = null;
-                temp = null;
-            }
-            // else traverse list until the end and delete
-            else {
-                while (temp.next != null) {
-                    temp = temp.next;
-                }
-                temp.prev.next = null;
-                temp = null;
-            }
-            size--;
-        } else {
-            System.out.println("List is empty!");
+        if (size < 1)
+            return null;
+        T obj = head.data;
+        size--;
+        if (size == 0)
+            head = tail = null;
+        else {
+            head = head.next;
+            head.prev.next = null;
+            head.prev = null;
         }
-
-        return null;
+        return obj;
     }
-
 }

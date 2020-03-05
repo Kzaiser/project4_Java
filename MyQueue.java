@@ -1,13 +1,15 @@
 public class MyQueue<T> extends MyList<T> {
 
     public MyQueue() {
-        head = tail = null;
-        size = 0;
+        this.head = this.tail = null;
+        this.size = 0;
     }
 
     public MyQueue(MyQueue<T> myQueue) {
-        myQueue.head = myQueue.tail = null;
-        myQueue.size = 0;
+        super(myQueue);
+        head = myQueue.head;
+        tail = myQueue.tail;
+        size = myQueue.size;
     }
     public MyQueue<T> enQueue(T obj) {
         //addToRear(obj);

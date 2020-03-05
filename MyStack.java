@@ -21,14 +21,15 @@ public class MyStack<T> extends MyList<T> {
     // }
 
     public MyStack() {
-        head = tail = null;
-        size = 0;
+        this.head = this.tail = null;
+        this.size = 0;
     }
 
     public MyStack(MyStack<T> myStack) {
         super(myStack);
-        myStack.head = myStack.tail = null;
-        myStack.size = 0;
+        head = myStack.head;
+        tail = myStack.tail;
+        size = myStack.size;
     }
 
     // Add the object (Node) to the top
@@ -55,7 +56,8 @@ public class MyStack<T> extends MyList<T> {
     // These are copy constructors. I'm actually not really sure what these are.
 
     // Remove object (Node) from the top
-    T pop() {
+    // The pop isn't working correctly.
+    public T pop() {
         if (head == null) {
             System.out.println(head);
             System.out.println("Stack is already empty!");
@@ -67,7 +69,7 @@ public class MyStack<T> extends MyList<T> {
         return null;
     }
     // 
-    T top() {
+    public T top() {
         if (head == null) {
             System.out.println(head);
             System.out.println("Stack is empty!");

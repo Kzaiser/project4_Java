@@ -3,16 +3,17 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.Iterator;
+import java.util.Collections;
 
 public class Project4 {
     static int n;
     static Member m = null;
     static MyStack<Member> myStack = new MyStack<Member>();
     static MyQueue<Member> myQueue = new MyQueue<Member>();
-    // static MySortedQueue<Member> mySortedQueue = new MySortedQueue<Member>();
+    static MySortedQueue<Member> mySortedQueue = new MySortedQueue<Member>();
     static MyStack<Member> myStackCopy = null;
     static MyQueue<Member> myQueueCopy = null;
-    // static MySortedQueue<Member> mySortedQueueCopy = null;
+    static MySortedQueue<Member> mySortedQueueCopy = null;
     static boolean bool = false;
     static Scanner scanner = new Scanner(System.in);
     static Random rand = new Random();
@@ -61,7 +62,7 @@ public class Project4 {
 
         } else {
             System.out.printf("\n\n\t\t%s",
-                    "Enter a command: G/g, S/s, Q/q, D/d, C/c, I/i, H/h/? to Toggle Command Menu, or E to Quit: ");
+                    "Enter a command: G/g, S/s, Q/q, O/o, D/d, C/c, I/i, H/h/? to Toggle Command Menu, or E to Quit: ");
         }
         return scanner.next().trim().charAt(0);
     }
@@ -124,13 +125,13 @@ public class Project4 {
                     break;
                 case 'O':
                 case 'o':
-                    // displaySortedQueue();
+                    displaySortedQueue();
                     break;
                 case 'D':
                 case 'd':
                     myStack.pop();
                     myQueue.deQueue();
-                    // mySortedQueue.deQueue();
+                    mySortedQueue.deque(m);
                     /*
                      * Check to see if the stack has anything in it. If it doesn't, print out that
                      * there is nothing to delete. Otherwise, pop from the stack, deque from the
@@ -141,8 +142,13 @@ public class Project4 {
                 case 'c':
                     // createCopy();
                     myStackCopy = new MyStack<>(myStack);
+                    displayStack();
+                    displayCopiedStack();
                     myQueueCopy = new MyQueue<>(myQueue);
-                    // mySortedQueueCopy = new MySortedQueue<>(mySortedQueue);
+                    displayQueue();
+                    displayCopiedQueue();
+                    mySortedQueueCopy = new MySortedQueue<>(mySortedQueue);
+                    displayCopiedSortedQueue();
                     break;
                 case 'I':
                 case 'i':
@@ -150,7 +156,7 @@ public class Project4 {
                     myStack.push(m);
                     myQueue.enQueue(m);
                     // mySortedQueue.enque(m);
-                    System.out.println(m.toString(true));
+                    System.out.printf("\t\tNew Member Added! -> %s", m.toString(true));
                     break;
                 case 'E':
                 case 'e':
@@ -171,18 +177,18 @@ public class Project4 {
      */
 
     static void generateAndStore() {
-        System.out.printf("\n\t\t Members to be generated?\n");
+        System.out.printf("\n\t\t Members to be generated?\n\t\t");
         try {
             n = scanner.nextInt();
             n *= 2;
         } catch (InputMismatchException e) {
-            System.out.println("\n\t\t Input a value!\n");
+            return;
         }
         for (int i = 0; i < n; i++) {
             m = nextMember();
             myStack.push(m);
             myQueue.enQueue(m);
-            // mySortedQueue.enque(m);
+            mySortedQueue.enque(m);
         }
     }
 
@@ -190,10 +196,10 @@ public class Project4 {
         Iterator<Member> itr = myStack.iterator();
         int limit = 20;
         int current = 0;
-        int lastValues = myStack.size - 20;
+        System.out.println("\t\t\t==================== Members in Stack ====================\n");
         while(itr.hasNext()) {
             current++;
-            System.out.println(itr.next() + "");
+            System.out.printf("\t\t\t%s\n", itr.next());
             if (current == limit) {
                 System.out.println("Would you like to continue? Enter Q/q to quit early.");
                 char continueAns = scanner.next().trim().charAt(0);
@@ -212,10 +218,10 @@ public class Project4 {
         Iterator<Member> itr = myQueue.iterator();
         int limit = 20;
         int current = 0;
-        int lastValues = myQueue.size - 20;
+        System.out.println("\t\t\t==================== Members in Queue ====================\n");
         while(itr.hasNext()) {
             current++;
-            System.out.println(itr.next() + "");
+            System.out.printf("\t\t\t%s\n", itr.next());
             if (current == limit) {
                 System.out.println("Would you like to continue? Enter Q/q to quit early.");
                 char continueAns = scanner.next().trim().charAt(0);
@@ -228,11 +234,52 @@ public class Project4 {
         }
         return;
     }
-//     static void displaySortedQueue() {
-//         Iterator<Member> itr = mySortedQueue.iterator();
-//         while(itr.hasNext()) {
-//             System.out.println(itr.next() + "");
-//         }
-//         return;
-//     }
+
+    static void displaySortedQueue() {
+        Iterator<Member> itr = mySortedQueue.iterator();
+        int limit = 20;
+        int current = 0;
+        System.out.println("\t\t\t==================== Members in Sorted Queue ====================\n");
+        while(itr.hasNext()) {
+            current++;
+            System.out.printf("\t\t\t%s\n", itr.next());
+            if (current == limit) {
+                System.out.println("Would you like to continue? Enter Q/q to quit early.");
+                char continueAns = scanner.next().trim().charAt(0);
+                if(continueAns == 'Q' || continueAns == 'q') {
+                    break;
+                } else {
+                    current = 0;
+                }
+            }
+        }
+        return;
+    }
+    static void displayCopiedStack() {
+        Iterator<Member> itr = myStackCopy.iterator();
+        System.out.println("\t\t\t==================== Members in Copied Stack ====================\n");
+        while(itr.hasNext()) {
+            System.out.printf("\t\t\t%s\n", itr.next());
+        }
+        return;
+    }
+    static void displayCopiedQueue() {
+        Iterator<Member> itr = myQueueCopy.iterator();
+        System.out.println("\t\t\t==================== Members in Copied Queue ====================\n");
+        while(itr.hasNext()) {
+            System.out.printf("\t\t\t%s\n", itr.next());
+        }
+        return;
+    }
+    static void displayCopiedSortedQueue() {
+        Iterator<Member> itr = mySortedQueueCopy.iterator();
+        System.out.println("\t\t\t==================== Members in Copied Sorted Queue ====================\n");
+        while(itr.hasNext()) {
+            System.out.printf("\t\t\t%s\n", itr.next());
+        }
+        return;
+    }
+
+    
+
 }
