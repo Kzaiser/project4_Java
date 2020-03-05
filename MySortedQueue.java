@@ -56,30 +56,25 @@ public class MySortedQueue<T extends Comparable> extends MyList<T> {
     public T deque(T obj) {
         Node cur = null;
         if(size == 0) {
-            System.out.println("hi");
             return null;
         }
 
         if(obj.compareTo(head.data) < 0 || obj.compareTo(tail.data) > 0) 
             return null;
         if(obj.compareTo(head.data) == 0) {
-            System.out.println("hi");
             removeFront();
             return obj;
         }
         if(obj.compareTo(tail.data) == 0) {
-            System.out.println("hi");
             removeRear();
             return obj;
         }
         for(cur = head.next; obj.compareTo(cur.data) > 0; cur = cur.next);
-        if(obj.compareTo(tail.data) > 0){
-            System.out.println("hi");
-
-            addToRear(obj);
-            return obj;
+        if(obj.compareTo(cur.data) == 0){
+            removeFront();
+            return (T)obj;
         }
-        return obj;
+        return null;
     }
 
     public MySortedQueue<T> head() {

@@ -14,6 +14,7 @@ public class TestSortedQueue {
         //queue.enQueue("fuck");
         sQueue.enque(4);
         sQueue.deque(3);
+        // sQueue.head();
         //queue.enQueue("fuck3");
         //first one is fuck4
         //queue.enQueue("fuck4");

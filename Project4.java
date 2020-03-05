@@ -1,9 +1,7 @@
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.Iterator;
-import java.util.Collections;
 
 public class Project4 {
     static int n;
@@ -197,20 +195,29 @@ public class Project4 {
         int limit = 20;
         int current = 0;
         System.out.println("\t\t\t==================== Members in Stack ====================\n");
-        while(itr.hasNext()) {
-            current++;
-            System.out.printf("\t\t\t%s\n", itr.next());
-            if (current == limit) {
-                System.out.println("Would you like to continue? Enter Q/q to quit early.");
-                char continueAns = scanner.next().trim().charAt(0);
-                if(continueAns == 'Q' || continueAns == 'q') {
-                    break;
-                } else {
+        if (current < limit) {
+            while(itr.hasNext()) {
+                current++;
+                 System.out.printf("\t\t\t%s\n", itr.next());
+                if (current == limit) {
+                    System.out.println("Would you like to continue? Enter anything to continue. Enter Q/q to quit early.");
+                    char continueAns = scanner.next().trim().charAt(0);
+                    if(continueAns == 'Q' || continueAns == 'q') {
+                        while (itr.hasNext()) {
+                            try {
+                            System.out.printf("\t\t\t%s\n", itr.next());
+                            } catch(NullPointerException e) {
+                                return;
+                            }
+                        }
+                        break;
+                    } else {
                     current = 0;
+                    }
                 }
             }
-        }
         return;
+        }
     }
 
 
@@ -219,20 +226,29 @@ public class Project4 {
         int limit = 20;
         int current = 0;
         System.out.println("\t\t\t==================== Members in Queue ====================\n");
-        while(itr.hasNext()) {
-            current++;
-            System.out.printf("\t\t\t%s\n", itr.next());
-            if (current == limit) {
-                System.out.println("Would you like to continue? Enter Q/q to quit early.");
-                char continueAns = scanner.next().trim().charAt(0);
-                if(continueAns == 'Q' || continueAns == 'q') {
-                    break;
-                } else {
+        if (current < limit) {
+            while(itr.hasNext()) {
+                current++;
+                 System.out.printf("\t\t\t%s\n", itr.next());
+                if (current == limit) {
+                    System.out.println("Would you like to continue? Enter anything to continue. Enter Q/q to quit early.");
+                    char continueAns = scanner.next().trim().charAt(0);
+                    if(continueAns == 'Q' || continueAns == 'q') {
+                        while (itr.hasNext()) {
+                            try {
+                            System.out.printf("\t\t\t%s\n", itr.next());
+                            } catch(NullPointerException e) {
+                                return;
+                            }
+                        }
+                        break;
+                    } else {
                     current = 0;
+                    }
                 }
             }
-        }
         return;
+        }
     }
 
     static void displaySortedQueue() {
@@ -240,44 +256,116 @@ public class Project4 {
         int limit = 20;
         int current = 0;
         System.out.println("\t\t\t==================== Members in Sorted Queue ====================\n");
-        while(itr.hasNext()) {
-            current++;
-            System.out.printf("\t\t\t%s\n", itr.next());
-            if (current == limit) {
-                System.out.println("Would you like to continue? Enter Q/q to quit early.");
-                char continueAns = scanner.next().trim().charAt(0);
-                if(continueAns == 'Q' || continueAns == 'q') {
-                    break;
-                } else {
+        if (current < limit) {
+            while(itr.hasNext()) {
+                current++;
+                 System.out.printf("\t\t\t%s\n", itr.next());
+                if (current == limit) {
+                    System.out.println("Would you like to continue? Enter anything to continue. Enter Q/q to quit early.");
+                    char continueAns = scanner.next().trim().charAt(0);
+                    if(continueAns == 'Q' || continueAns == 'q') {
+                        while (itr.hasNext()) {
+                            try {
+                            System.out.printf("\t\t\t%s\n", itr.next());
+                            } catch(NullPointerException e) {
+                                return;
+                            }
+                        }
+                        break;
+                    } else {
                     current = 0;
+                    }
                 }
             }
-        }
         return;
+        }
     }
     static void displayCopiedStack() {
         Iterator<Member> itr = myStackCopy.iterator();
+        int limit = 20;
+        int current = 0;
         System.out.println("\t\t\t==================== Members in Copied Stack ====================\n");
-        while(itr.hasNext()) {
-            System.out.printf("\t\t\t%s\n", itr.next());
-        }
+        if (current < limit) {
+            while(itr.hasNext()) {
+                current++;
+                 System.out.printf("\t\t\t%s\n", itr.next());
+                if (current == limit) {
+                    System.out.println("Would you like to continue? Enter anything to continue. Enter Q/q to quit early.");
+                    char continueAns = scanner.next().trim().charAt(0);
+                    if(continueAns == 'Q' || continueAns == 'q') {
+                        while (itr.hasNext()) {
+                            try {
+                            System.out.printf("\t\t\t%s\n", itr.next());
+                            } catch(NullPointerException e) {
+                                return;
+                            }
+                        }
+                        break;
+                    } else {
+                    current = 0;
+                    }
+                }
+            }
         return;
+        }
     }
     static void displayCopiedQueue() {
         Iterator<Member> itr = myQueueCopy.iterator();
         System.out.println("\t\t\t==================== Members in Copied Queue ====================\n");
-        while(itr.hasNext()) {
-            System.out.printf("\t\t\t%s\n", itr.next());
-        }
+        int limit = 20;
+        int current = 0;
+        if (current < limit) {
+            while(itr.hasNext()) {
+                current++;
+                 System.out.printf("\t\t\t%s\n", itr.next());
+                if (current == limit) {
+                    System.out.println("Would you like to continue? Enter anything to continue. Enter Q/q to quit early.");
+                    char continueAns = scanner.next().trim().charAt(0);
+                    if(continueAns == 'Q' || continueAns == 'q') {
+                        while (itr.hasNext()) {
+                            try {
+                            System.out.printf("\t\t\t%s\n", itr.next());
+                            } catch(NullPointerException e) {
+                                return;
+                            }
+                        }
+                        break;
+                    } else {
+                    current = 0;
+                    }
+                }
+            }
         return;
+        }
     }
     static void displayCopiedSortedQueue() {
         Iterator<Member> itr = mySortedQueueCopy.iterator();
         System.out.println("\t\t\t==================== Members in Copied Sorted Queue ====================\n");
-        while(itr.hasNext()) {
-            System.out.printf("\t\t\t%s\n", itr.next());
-        }
+        int limit = 20;
+        int current = 0;
+        if (current < limit) {
+            while(itr.hasNext()) {
+                current++;
+                 System.out.printf("\t\t\t%s\n", itr.next());
+                if (current == limit) {
+                    System.out.println("Would you like to continue? Enter anything to continue. Enter Q/q to quit early.");
+                    char continueAns = scanner.next().trim().charAt(0);
+                    if(continueAns == 'Q' || continueAns == 'q') {
+                        while (itr.hasNext()) {
+                            try {
+                            System.out.printf("\t\t\t%s\n", itr.next());
+                            } catch(NullPointerException e) {
+                                return;
+                            }
+                        }
+                        break;
+                    } else {
+                    current = 0;
+                    }
+                }
+            }
         return;
+        }
     }
 
     
