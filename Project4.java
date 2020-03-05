@@ -3,6 +3,14 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.Iterator;
 
+/* 
+CMPS 3390: Java Advance Programming
+Project 4: Linked List
+Created by:
+    Lawrence Marquez
+    Guang Liu
+    Zachary Kaiser
+*/
 public class Project4 {
     static int n;
     static Member m = null;
